@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1a1a1a;
+    color: #d1cfcf;
+    text-align: center;
+}
+
+header {
+    background-color: #111;
+    padding: 20px 0;
+}
+
+h1 {
+    color: #b11226;
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px #000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #d1cfcf;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #b11226;
+}
+
+#featured {
+    padding: 50px 0;
+}
+
+h2 {
+    color: #b11226;
+    font-size: 2.5rem;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.item {
+    position: relative;
+    width: 250px;
+}
+
+.item img {
+    width: 100%;
+    border: 3px solid #333;
+    border-radius: 10px;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.item img:hover {
+    transform: scale(1.05);
+    border: 3px solid #b11226;
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #d1cfcf;
+}
+
+#details {
+    padding: 40px;
+    background-color: #282828;
+    margin-top: 50px;
+    border-top: 3px solid #b11226;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: #111;
+    color: #888;
+}
