@@ -5,12 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who is 2Hollis?</title>
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Cinzel:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #121212;
+            color: #ddd;
+            font-family: 'Cinzel', serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            line-height: 1.6;
+            background-image: url('path-to-your-gothic-texture.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 40px;
+            border-bottom: 5px solid #800000;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 3.5rem;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #bbb;
+        }
+
+        .parallax {
+            position: relative;
+            background-image: url('path-to-your-parallax-image.jpg');
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .parallax-content img {
+            max-width: 50%;
+            height: auto;
+            border: 5px solid white;
+            border-radius: 10px;
+        }
+
+        .container {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ddd;
+            border-radius: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: #121212;
+            color: #bbb;
+            padding: 20px;
+            border-top: 5px solid #800000;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        footer p {
+            font-style: italic;
+        }
+
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <header class="gothic-box-shadow">
+
+    <header>
         <h1>Who is 2Hollis?</h1>
         <p>Published on October 16, 2024</p>
     </header>
+
+    <div class="parallax">
+        <div class="parallax-content">
+            <img src="https://github.com/Gv1868/2hollisstore/blob/main/images/2hollis%20cross.jpg" alt="2hollis cross">
+            <p style="margin-top: 20px; font-size: 1.5rem;">The artist behind the mystique, redefining genres.</p>
+        </div>
+    </div>
 
     <section class="container">
         <p>2hollis is a rising artist known for his genre-defying music that blends elements of hip-hop, electronic dance music (EDM), techno, and more. Based in Los Angeles, 2hollis is both a performer and a music producer who takes full control over his creative process, from producing to mixing and recording his tracks. His music is characterized by a minimalist approach, utilizing negative space to keep listeners engaged, and has a unique, almost mystical quality. Tracks like "GOD," "PLASTER," and "FORFEIT" have gained attention, with some even featured on EA Sports’ F1 23 soundtrack.</p>
@@ -19,7 +146,29 @@
     </section>
 
     <footer>
-        <p>&copy; 2Hollis Worldwide. All rights reserved.</p>
+        <p>&copy; 2024 2Hollis Worldwide. All rights reserved. Current date: <span id="currentDate"></span></p>
     </footer>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const currentDate = new Date();
+        document.getElementById("currentDate").textContent = currentDate.toDateString();
+
+        window.onscroll = function() {toggleScrollToTopBtn()};
+        
+        function toggleScrollToTopBtn() {
+            const button = document.getElementById("scrollToTopBtn");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
