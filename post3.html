@@ -4,85 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gothic Storefront</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <style>
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cinzel', serif; 
-            color: #e0e0e0;
+            font-family: 'Cinzel', serif;
         }
 
-        
         body {
-            background-color: #1c1c1c; 
-            color: #e0e0e0; 
+            background-color: #1c1c1c;
+            color: #e0e0e0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        
         a {
-            color: #8b0000; 
+            color: #8b0000;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         a:hover {
             color: #b22222;
         }
 
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'UnifrakturMaguntia', cursive; 
-            text-transform: uppercase;
+        h1, h2 {
+            font-family: 'UnifrakturMaguntia', cursive;
             color: #fff;
-            margin-bottom: 10px;
+            text-align: center;
         }
 
         h1 {
-            font-size: 3em;
-            border-bottom: 2px solid #8b0000; 
+            font-size: 3rem;
+            margin: 20px 0;
         }
 
         h2 {
-            font-size: 2.5em;
-            border-bottom: 1px solid #8b0000;
+            font-size: 2.5rem;
+            margin: 40px 0 20px;
         }
 
-        h3 {
-            font-size: 2em;
+       
+        nav {
+            background-color: #222;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        h4, h5, h6 {
-            font-size: 1.5em;
+        nav ul {
+            list-style: none;
         }
 
-        
-        p {
-            font-family: 'Cinzel', serif;
-            font-size: 1.2em;
-            margin-bottom: 15px;
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        nav ul li a:hover {
+            color: #b22222;
+        }
+
+        /* Header and Featured Section */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #featured {
+            padding: 50px 0;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 250px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(139, 0, 0, 0.7);
+        }
+
+        .item img {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #333;
+        }
+
+        .item p {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1.2rem;
         }
 
         
         .container {
-            width: 80%;
-            margin: 0 auto;
+            margin: 40px auto;
             padding: 20px;
-            background: rgba(30, 30, 30, 0.8); 
+            background: rgba(30, 30, 30, 0.8);
             border: 1px solid #8b0000;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-width: 800px;
         }
 
-        
+        .container p {
+            font-size: 1.1rem;
+        }
+
+       
+        .click-here-btn {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: block;
+            margin: 30px auto;
+            max-width: 200px;
+        }
+
+        .click-here-btn:hover {
+            background-color: #b22222;
+            transform: scale(1.1);
+        }
+
+       
         footer {
-            background-color: #111;
-            color: #8b0000;
             text-align: center;
             padding: 20px;
-            border-top: 1px solid #8b0000;
+            background: #111;
+            color: #8b0000;
         }
 
         footer a {
@@ -94,204 +168,64 @@
         }
 
        
-        button {
-            background-color: #8b0000;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-family: 'Cinzel', serif;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
         }
 
-        button:hover {
-            background-color: #b22222;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-
-       
-        nav {
-            background-color: #222;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            font-size: 1.2em;
-        }
-
-        
-        hr {
-            border: none;
-            height: 1px;
-            background: #8b0000;
-            margin: 20px 0;
-        }
-
-        
-        .gothic-box-shadow {
-            box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
-            padding: 15px;
-            background: rgba(30, 30, 30, 0.9);
-        }
-
-      
-        input, textarea {
-            background-color: #333;
-            border: 1px solid #8b0000;
-            color: #e0e0e0;
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #b22222;
-        }
-
-        
-        .section-title {
-            font-family: 'UnifrakturMaguntia', cursive;
-            color: #fff;
-            font-size: 2.5em;
-            text-align: center;
-            margin: 20px 0;
-            letter-spacing: 2px;
-        }
-
-        
-        #featured {
-            padding: 50px 0;
-        }
-
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .item {
-            position: relative;
-            width: 250px;
-        }
-
-        .item img {
-            width: 100%;
-            border: 3px solid #333;
-            border-radius: 10px;
-            transition: transform 0.3s ease, border 0.3s ease;
-        }
-
-        .item img:hover {
-            transform: scale(1.05);
-            border: 3px solid #b11226;
-        }
-
-        .item p {
-            margin-top: 10px;
-            font-size: 1.2rem;
-            color: #d1cfcf;
-        }
-
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#featured">Featured Jewelry</a></li>
+            <li><a href="#details">Product Details</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <h1>Gothic Cross necklace</h1>
-        <nav>
-            <ul>
-            
-            </ul>
-        </nav>
+        <h1 class="fade-in">Gothic Cross Necklace</h1>
     </header>
 
     <section id="featured">
-        <h2 class="section-title">Featured Gothic Jewelry</h2>
+        <h2>Featured Gothic Jewelry</h2>
         <div class="gallery">
-            <div class="item">
-                <img src="./images/CROSS 1.jpg" alt="Gothic Cross Pendant 1">
+            <div class="item fade-in">
+                <img src="./images/CROSS1.jpg" alt="Gothic Cross Pendant 1">
                 <p>Gothic Cross Pendant 1</p>
             </div>
-            <div class="item">
-                <img src="./images/CROSS 2.jpg" alt="Gothic Cross Pendant 2">
+            <div class="item fade-in">
+                <img src="./images/CROSS2.jpg" alt="Gothic Cross Pendant 2">
                 <p>Gothic Cross Pendant 2</p>
             </div>
-            <div class="item">
-                <img src="./images/CROSS 3.jpg" alt="Gothic Cross Pendant 3">
+            <div class="item fade-in">
+                <img src="./images/CROSS3.jpg" alt="Gothic Cross Pendant 3">
                 <p>Gothic Cross Pendant 3</p>
             </div>
         </div>
     </section>
 
     <section id="details">
-        <h2 class="section-title">Product Details</h2>
-        <div class="container">
-            <p>This exquisitely crafted Gothic Cross necklace embodies the very essence of dark allure and timeless elegance. The intricate design is a perfect blend of medieval artistry and modern craftsmanship, featuring sharp, dramatic edges that evoke a sense of mystique and power. The antique silver finish enhances its vintage appeal, while the detailed engravings add a layer of depth and complexity, making it a true statement piece.
-
-Whether you're drawn to its symbolic meaning or simply its captivating design, this necklace is ideal for those who appreciate the gothic aesthetic and want to express their individuality. It's more than just an accessory—it's a powerful emblem of strength, beauty, and mystery.
-
-Key Features:
-
-Material: High-quality, tarnish-resistant alloy with an antique silver finish
-Design: Intricately detailed with gothic-inspired engravings and ornate patterns
-Chain Length: Adjustable, allowing for versatile wear
-Perfect for gothic, alternative, and medieval fashion enthusiasts
-A great gift for those who love dark, elegant accessories
-Drape this Gothic Cross necklace around your neck, and let its haunting beauty enhance your personal style!!</p>
+        <h2>Product Details</h2>
+        <div class="container fade-in">
+            <p>
+                This exquisitely crafted Gothic Cross necklace embodies the essence of dark allure and timeless elegance. 
+                Featuring a blend of medieval artistry and modern craftsmanship, it’s perfect for those who appreciate gothic aesthetics.
+            </p>
+            <button class="click-here-btn" onclick="window.open('https://www.amazon.com/dp/B0DBZ3DMZG', '_blank')">Click Here</button>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Dark Elegance Store. All rights reserved.</p>
     </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click Here Button</title>
-    <style>
-       
-        .click-here-btn {
-            background-color: #8b0000; 
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        
-        .click-here-btn:hover {
-            background-color: #b22222; 
-            transform: scale(1.05); 
-        }
-    </style>
-</head>
-<body>
-
-    <a href="https://www.amazon.com/dp/B0DBZ3DMZG/ref=sspa_dk_detail_5?psc=1&pd_rd_i=B0DBZ3DMZG&pd_rd_w=dHs1p&content-id=amzn1.sym.be5cdf6a-f23a-4168-8100-e5595659876c&pf_rd_p=be5cdf6a-f23a-4168-8100-e5595659876c&pf_rd_r=27DYCNPXKZ6XCD0786KA&pd_rd_wg=ona1s&pd_rd_r=42667b22-74a8-4759-9961-aad2ee66e8c9&s=jewelry&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM">
-        <button class="click-here-btn">Click Here</button>
-    </a>
-
 </body>
 </html>
